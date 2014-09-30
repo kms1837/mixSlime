@@ -7,13 +7,18 @@ class SlimeBox : public cocos2d::Node
 {
 private:
     int colorNumber;
+    int colNumber;
+    int rowNumber;
 public:
     SlimeBox();
     ~SlimeBox();
     cocos2d::Sprite* boxSprite;
     cocos2d::Sprite* slimeSprite;
-    void setColorNumber(int);
-    int getColorNumber();
+    void setSlimeColor(int);
+    int getSlimeColor();
+    void setArrayPosition(int, int);
+    int getColNumber();
+    int getRowNumber();
 };
 
 #endif

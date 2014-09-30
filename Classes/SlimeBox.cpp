@@ -7,5 +7,13 @@ SlimeBox::SlimeBox(){
 
 SlimeBox::~SlimeBox(){}
 
-void SlimeBox::setColorNumber(int inputNumber){colorNumber = inputNumber;}
-int  SlimeBox::getColorNumber(){return colorNumber;}
+void SlimeBox::setSlimeColor(int inputNumber){colorNumber = inputNumber;}
+int  SlimeBox::getSlimeColor(){return colorNumber;}
+void SlimeBox::setArrayPosition(int inputColNumber, int inputRowNumber)
+{
+    colNumber = inputColNumber;
+    rowNumber = inputRowNumber;
+}
+
+int SlimeBox::getColNumber(){return colNumber;}
+int SlimeBox::getRowNumber(){return rowNumber;}
