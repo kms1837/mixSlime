@@ -44,23 +44,38 @@ bool GameMain::init()
     //////////////////////////////////////
     
     
-    //////////////////////////////////////
+    //////////// 타이머 & 게이지 ////////////
     schedule(schedule_selector(GameMain::timeAttackTimer), 1);
     setEndTimeNumber = 10;
+    
+    auto left = ProgressTimer::create(Sprite::create("test_gaugebar.png"));
+    left->setType(ProgressTimer::Type::BAR);
+    // Setup for a bar starting from the left since the midpoint is 0 for the x
+    left->setMidpoint(Vec2(0, 0));
+    // Setup for a horizontal bar since the bar change rate is 0 for y meaning no vertical change
+    left->setBarChangeRate(Vec2(1, 0));
+    addChild(left);
+    
+    left->setPosition(Vec2(visibleSize.width/2, 260));
+    
+    left->runAction(ProgressFromTo::create(setEndTimeNumber, 100, 0)); //setEndTimeNumber
+    
     //////////////////////////////////////
+    
+    gameScore = 0;
     
     setColNumber = 6;
     setRowNumber = 6;
+    
     gameSetting();
     
     return true;
 }
 
-int count = 0;
-
 void GameMain::timeAttackTimer(float f)
 {
     count++;
+    CCLOG("타이머 : %d", count);
     if(setEndTimeNumber <= count){
         CCLOG("끝!");
         unschedule(schedule_selector(GameMain::timeAttackTimer));
@@ -68,6 +83,12 @@ void GameMain::timeAttackTimer(float f)
     
     //CCLOG("시간 : %d", count++);
 }
+
+void GameMain::getTheScore()
+{
+    gameScore = gameScore + 1;
+    CCLOG("현재스코어 %l", gameScore);
+}//게임스코어에 대한 로직
 
 //////////////////////테스트용/////////////////////////
 
@@ -256,7 +277,6 @@ int GameMain::slimeColorMix(int inputColor1, int inputColor2)
  6 - 초록(파랑+노랑)
  */
 
-
 void GameMain::slimeMove(SlimeBox* moveSlime, SlimeBox* targetSlime)
 {
     int moveSlimeColor   = moveSlime->getSlimeColor();
@@ -276,6 +296,7 @@ void GameMain::slimeMove(SlimeBox* moveSlime, SlimeBox* targetSlime)
         moveSlime->setSlimeColor(0);
         setSlimeSprite(targetSlime);
         setSlimeSprite(moveSlime);
+        if(mixColor==7) getTheScore();
     }
 }
 /*

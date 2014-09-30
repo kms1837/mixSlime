@@ -24,6 +24,7 @@ private:
     void gameSetting();
     int slimeColorMix(int, int); //슬라임 색을 섞음
     void slimeMove(SlimeBox*, SlimeBox*); //슬라임 이동과 색을 섞음
+    void getTheScore();
     
     SlimeBox** gameSet;
     int boxWeitht; //박스 넓이
@@ -46,6 +47,10 @@ private:
     cocos2d::Label* rowLabel;
     float spriteSize;
     ////
+    
+    int count = 0; //카운터 테스트
+    long gameScore;
+    
 };
 
 #endif // __HELLOWORLD_SCENE_H__
