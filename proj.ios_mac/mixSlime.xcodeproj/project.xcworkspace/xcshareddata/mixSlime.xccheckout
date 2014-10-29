@@ -10,29 +10,29 @@
 	<string>mixSlime</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>607CCE70-68C1-4669-9AC4-A4261A433CF9</key>
+		<key>66C48515F23E3FA528EB2732018EF77C94829616</key>
 		<string>https://github.com/kms1837/mixSlime.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>proj.ios_mac/mixSlime.xcodeproj/project.xcworkspace</string>
+	<string>proj.ios_mac/mixSlime.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>607CCE70-68C1-4669-9AC4-A4261A433CF9</key>
+		<key>66C48515F23E3FA528EB2732018EF77C94829616</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kms1837/mixSlime.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>607CCE70-68C1-4669-9AC4-A4261A433CF9</string>
+	<string>66C48515F23E3FA528EB2732018EF77C94829616</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>607CCE70-68C1-4669-9AC4-A4261A433CF9</string>
+			<string>66C48515F23E3FA528EB2732018EF77C94829616</string>
 			<key>IDESourceControlWCCName</key>
 			<string>mixSlime</string>
 		</dict>

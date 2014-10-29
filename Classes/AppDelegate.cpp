@@ -3,12 +3,13 @@
 
 USING_NS_CC;
 
-AppDelegate::AppDelegate() {
-
+AppDelegate::AppDelegate()
+{
 }
 
 AppDelegate::~AppDelegate() 
 {
+    
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {

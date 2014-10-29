@@ -275,7 +275,7 @@ int GameMain::slimeColorMix(int inputColor1, int inputColor2)
  4 - 노랑
  5 - 주황(빨강+노랑)
  6 - 초록(파랑+노랑)
- */
+*/
 
 void GameMain::slimeMove(SlimeBox* moveSlime, SlimeBox* targetSlime)
 {
