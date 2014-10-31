@@ -5,9 +5,11 @@
 #include "SlimeBox.h"
 #include "extensions/cocos-ext.h"
 
-const int GAMESETHEIGHTSPACE = 1230;
+const int GAMESETHEIGHTSPACE = 1160; //게임판의 y위치
+const int GAMESETLEFTSPACE   = 60; //게임판의 x 위치
+const int GAMESETBOXSPACE    = 20; //슬라임 간격(클수록 간격이 좁아짐)
 
-class GameMain : public cocos2d::Layer
+class GameMain : public cocos2d::LayerColor
 {
 public:
     static cocos2d::Scene* createScene();

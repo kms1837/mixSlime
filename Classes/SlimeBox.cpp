@@ -1,7 +1,7 @@
 #include "SlimeBox.h"
 
 SlimeBox::SlimeBox(){
-    boxSprite   = cocos2d::Sprite::create("box.png");
+    boxSprite   = cocos2d::Sprite::create();
     slimeSprite = NULL;
 }
 

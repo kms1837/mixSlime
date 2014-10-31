@@ -1,6 +1,8 @@
 #include "GameMain.h"
+#include "resultLayer.h"
 
 using namespace cocos2d;
+USING_NS_CC_EXT;
 
 /*
  색상코드
@@ -11,6 +13,7 @@ Scene* GameMain::createScene()
 {
     auto scene = Scene::create();
     auto layer = GameMain::create();
+    //layer->setColor(Color3B(204, 250, 150));
     scene->addChild(layer);
     
     return scene;
@@ -19,7 +22,7 @@ Scene* GameMain::createScene()
 // on "init" you need to initialize your instance
 bool GameMain::init()
 {
-    if ( !Layer::init() ) return false;
+    if ( !LayerColor::initWithColor(Color4B(114, 76, 0, 255)) ) return false;
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
@@ -48,7 +51,7 @@ bool GameMain::init()
     
     //////////// 타이머 & 게이지 ////////////
     schedule(schedule_selector(GameMain::timeAttackTimer), 1);
-    setEndTimeNumber = 10;
+    setEndTimeNumber = 30;
     
     Sprite* timerBarCase = Sprite::create("ui/timebar2.png");
     timerBarCase->setPosition(Vec2(visibleSize.width/2, 80));
@@ -67,9 +70,25 @@ bool GameMain::init()
     left->runAction(ProgressFromTo::create(setEndTimeNumber, 100, 0)); //setEndTimeNumber
     
     //////////////////////////////////////
+    
+    Sprite* background = Sprite::create();
+    background->setPosition(Vec2(540, 640));
+    addChild(background);
+    
     Sprite* penle = Sprite::create("ui/penel.png");
     penle->setPosition(Vec2(540, 680));
     addChild(penle);
+    
+    CCLabelTTF* scoreTitle = CCLabelTTF::create("Score", "맑은고딕", 60.0f);
+    //scoreTitle->setColor(Color3B(0, 0, 0));
+    scoreTitle->setPosition(Vec2(119.0f, 1860.0f));
+    addChild(scoreTitle);
+    
+    CCLabelTTF* scoreLabel = CCLabelTTF::create("0", "맑은고딕", 45.0f);
+    //scoreLabel->setColor(Color3B(0, 0, 0));
+    scoreLabel->setPosition(Vec2(150.0f, 1795.0f));
+    scoreLabel->setName("scoreLabel");
+    addChild(scoreLabel);
     
     gameScore = 0;
     
@@ -87,6 +106,20 @@ void GameMain::timeAttackTimer(float f)
     CCLOG("타이머 : %d", count);
     if(setEndTimeNumber <= count){
         CCLOG("끝!");
+        
+        cocosbuilder::NodeLoaderLibrary * nodeLoaderLibrary = cocosbuilder::NodeLoaderLibrary::newDefaultNodeLoaderLibrary();
+        nodeLoaderLibrary->registerNodeLoader("ResultLayer", ResultLayerBuilderLoader::loader());
+        cocosbuilder::CCBReader* ccbReader = new cocosbuilder::CCBReader(nodeLoaderLibrary);
+        auto node = ccbReader->readNodeGraphFromFile("resultLayer.ccbi");
+        addChild(node, 10);
+        
+        CCLabelTTF* endScore = CCLabelTTF::create(std::to_string(gameScore), "맑은고딕", 80);
+        endScore->setColor(Color3B(0, 0, 0));
+        endScore->setPosition(Vec2(513.0f, 934.0f));
+        endScore->setOpacity(0);
+        endScore->runAction(Sequence::create(DelayTime::create(0.5f), FadeIn::create(0.3f), NULL));
+        addChild(endScore, 11);
+        
         unschedule(schedule_selector(GameMain::timeAttackTimer));
     }
     
@@ -95,7 +128,10 @@ void GameMain::timeAttackTimer(float f)
 
 void GameMain::getTheScore()
 {
-    gameScore = gameScore + 1;
+    gameScore = gameScore + 10;
+    CCLabelTTF* scoreLabel = (CCLabelTTF*)getChildByName("scoreLabel");
+    scoreLabel->setString(std::to_string(gameScore));
+    
     CCLOG("현재스코어 %l", gameScore);
 }//게임스코어에 대한 로직
 
@@ -128,16 +164,16 @@ void GameMain::gameSetting()
     gameSet = new SlimeBox*[setColNumber];
     for (int i=0; i<setColNumber; i++) gameSet[i] = new SlimeBox[setRowNumber];
     
-    boxWeitht = visibleSize.width/setRowNumber; //가로사이즈
+    boxWeitht = (visibleSize.width/setRowNumber) - 20; //가로사이즈
     boxHeight = boxWeitht; //세로사이즈
     
     for (int i=0; i<setColNumber; i++) {
         for (int j=0; j<setRowNumber; j++) {
             ///
             spriteSize = 180/boxWeitht;
-            if(setRowNumber>6) gameSet[i][j].boxSprite->setScale(spriteSize);
+            //if(setRowNumber>6) gameSet[i][j].boxSprite->setScale(spriteSize);
             ///
-            gameSet[i][j].boxSprite->setPosition(Point(boxWeitht*j+(boxWeitht/2), GAMESETHEIGHTSPACE-(boxWeitht*i+(boxWeitht/2))));
+            gameSet[i][j].boxSprite->setPosition(Point(GAMESETLEFTSPACE+(boxWeitht*j+(boxWeitht/2)), GAMESETHEIGHTSPACE-(boxWeitht*i+(boxWeitht/2))));
             
             int setColorNumber = 0;
             while(setColorNumber==3 || setColorNumber==0) setColorNumber = (rand()%4)+1; //3이 혼합색인 보라컬러이기때문에 3을 제외한 숫자가 나올때까지 돌린다.

@@ -93,6 +93,8 @@
 		C3ADA53B1A036010006D4B0D /* ui in Resources */ = {isa = PBXBuildFile; fileRef = C3ADA5391A036010006D4B0D /* ui */; };
 		C3B298E71A0369ED000B9A67 /* resultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B298E51A0369ED000B9A67 /* resultLayer.cpp */; };
 		C3B298E81A0369ED000B9A67 /* resultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B298E51A0369ED000B9A67 /* resultLayer.cpp */; };
+		C3B298EB1A036B59000B9A67 /* resultLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = C3B298EA1A036B59000B9A67 /* resultLayer.ccbi */; };
+		C3B298EC1A036B59000B9A67 /* resultLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = C3B298EA1A036B59000B9A67 /* resultLayer.ccbi */; };
 		C3C88ADF1A00684300482713 /* IntroScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C88ADD1A00684300482713 /* IntroScene.cpp */; };
 		C3C88AE01A00684300482713 /* IntroScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C88ADD1A00684300482713 /* IntroScene.cpp */; };
 		C3C88AE31A00686F00482713 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C88AE11A00686F00482713 /* MainScene.cpp */; };
@@ -312,6 +314,7 @@
 		C3ADA5391A036010006D4B0D /* ui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ui; sourceTree = "<group>"; };
 		C3B298E51A0369ED000B9A67 /* resultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = resultLayer.cpp; path = ../Classes/resultLayer.cpp; sourceTree = "<group>"; };
 		C3B298E61A0369ED000B9A67 /* resultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resultLayer.h; path = ../Classes/resultLayer.h; sourceTree = "<group>"; };
+		C3B298EA1A036B59000B9A67 /* resultLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = resultLayer.ccbi; sourceTree = "<group>"; };
 		C3C88ADD1A00684300482713 /* IntroScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IntroScene.cpp; path = ../Classes/IntroScene.cpp; sourceTree = "<group>"; };
 		C3C88ADE1A00684300482713 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = ../Classes/IntroScene.h; sourceTree = "<group>"; };
 		C3C88AE11A00686F00482713 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
@@ -512,6 +515,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3B298EA1A036B59000B9A67 /* resultLayer.ccbi */,
 				C3ADA5391A036010006D4B0D /* ui */,
 				C3ADA5121A0313C5006D4B0D /* blue.png */,
 				C3ADA5131A0313C5006D4B0D /* box.png */,
@@ -737,6 +741,7 @@
 				C3ADA5101A03132B006D4B0D /* slime in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				C3ADA5291A0313C5006D4B0D /* HelloWorld.png in Resources */,
+				C3B298EB1A036B59000B9A67 /* resultLayer.ccbi in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				C3ADA52D1A0313C5006D4B0D /* purple.png in Resources */,
@@ -765,6 +770,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3ADA52E1A0313C5006D4B0D /* purple.png in Resources */,
+				C3B298EC1A036B59000B9A67 /* resultLayer.ccbi in Resources */,
 				C3ADA53B1A036010006D4B0D /* ui in Resources */,
 				C3ADA5341A0313C5006D4B0D /* stepper-plus.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
