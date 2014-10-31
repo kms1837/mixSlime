@@ -1,6 +1,6 @@
 #include "GameMain.h"
 
-USING_NS_CC;
+using namespace cocos2d;
 
 /*
  색상코드
@@ -32,6 +32,7 @@ bool GameMain::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     
     //////////// 판 늘리기 패널 ////////////
+    /*
     cocos2d::extension::ControlStepper* stepper = cocos2d::extension::ControlStepper::create(Sprite::create("stepper-minus.png"), Sprite::create("stepper-plus.png"));
     stepper->setPosition(Point(visibleSize.width/2, 200));
     stepper->addTargetWithActionForControlEvents(this, cccontrol_selector(GameMain::valueChanged), cocos2d::extension::Control::EventType::VALUE_CHANGED);
@@ -41,6 +42,7 @@ bool GameMain::init()
     stepper2->setPosition(Point(visibleSize.width/2, 150));
     stepper2->addTargetWithActionForControlEvents(this, cccontrol_selector(GameMain::valueChanged2), cocos2d::extension::Control::EventType::VALUE_CHANGED);
     addChild(stepper2);
+     */
     //////////////////////////////////////
     
     
@@ -48,7 +50,11 @@ bool GameMain::init()
     schedule(schedule_selector(GameMain::timeAttackTimer), 1);
     setEndTimeNumber = 10;
     
-    auto left = ProgressTimer::create(Sprite::create("test_gaugebar.png"));
+    Sprite* timerBarCase = Sprite::create("ui/timebar2.png");
+    timerBarCase->setPosition(Vec2(visibleSize.width/2, 80));
+    addChild(timerBarCase);
+    
+    auto left = ProgressTimer::create(Sprite::create("ui/timebar.png"));
     left->setType(ProgressTimer::Type::BAR);
     // Setup for a bar starting from the left since the midpoint is 0 for the x
     left->setMidpoint(Vec2(0, 0));
@@ -56,11 +62,14 @@ bool GameMain::init()
     left->setBarChangeRate(Vec2(1, 0));
     addChild(left);
     
-    left->setPosition(Vec2(visibleSize.width/2, 260));
+    left->setPosition(Vec2(visibleSize.width/2, 80));
     
     left->runAction(ProgressFromTo::create(setEndTimeNumber, 100, 0)); //setEndTimeNumber
     
     //////////////////////////////////////
+    Sprite* penle = Sprite::create("ui/penel.png");
+    penle->setPosition(Vec2(540, 680));
+    addChild(penle);
     
     gameScore = 0;
     
@@ -158,7 +167,7 @@ void GameMain::setSlimeSprite(SlimeBox* slimeNode)
 {
     int slimeColor = slimeNode->getSlimeColor();
     
-    std::string slimeResourceName[] = {" ", "red.png", "blue.png", "purple.png", "yellow.png", "orange.png", "green.png"};
+    std::string slimeResourceName[] = {" ", "slime/red.png", "slime/blue.png", "slime/purple.png", "slime/yellow.png", "slime/orange.png", "slime/green.png"};
     Vec2 slimeBoxPosition = slimeNode->boxSprite->getPosition();
     CallFuncN* removeFunc = CallFuncN::create(CC_CALLBACK_1(GameMain::autoRemoveSprite, this));
     

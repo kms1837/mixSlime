@@ -5,7 +5,7 @@
 #include "SlimeBox.h"
 #include "extensions/cocos-ext.h"
 
-#define GAMESETHEIGHTSPACE 1500
+const int GAMESETHEIGHTSPACE = 1230;
 
 class GameMain : public cocos2d::Layer
 {

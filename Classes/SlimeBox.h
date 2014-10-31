@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-class SlimeBox : public cocos2d::Node
+class SlimeBox
 {
 private:
     int colorNumber;
